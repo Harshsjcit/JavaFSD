@@ -1,0 +1,24 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexExample {
+
+    public static void main(String[] args) {
+        // Define a regular expression pattern
+        String regex = "\\b\\d{3}-\\d{2}-\\d{4}\\b"; // Pattern for a social security number (###-##-####)
+
+        // Create a Pattern object
+        Pattern pattern = Pattern.compile(regex);
+
+        // Input string to be matched
+        String input = "John's SSN is 123-45-6789, and Lisa's SSN is 987-65-4321.";
+
+        // Create Matcher object
+        Matcher matcher = pattern.matcher(input);
+
+        // Find matches
+        while (matcher.find()) {
+            System.out.println("Found SSN: " + matcher.group());
+        }
+    }
+}
